@@ -8,3 +8,4 @@ export { SearchBar } from './SearchBar';
 export { SearchManufacturer } from './SearchManufacturer';
 export { CustomFilter } from './CustomFilter';
 export { CarCard } from './CarCard';
+export { CarDetails } from './CarDetails';
