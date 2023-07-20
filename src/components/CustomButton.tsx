@@ -10,8 +10,8 @@ export const CustomButton = ({ title, containerStyles, handleClick }: CustomButt
       disabled={false}
       type={'button'}
       className={`custom-btn ${containerStyles}`}
-      onClick={() => {}}>
-      <span className={`flex-1`}>title</span>
+      onClick={handleClick}>
+      <span className={`flex-1`}>{title}</span>
     </button>
   );
 };
