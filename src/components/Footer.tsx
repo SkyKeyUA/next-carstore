@@ -3,8 +3,8 @@
 import Image from 'next/image';
 import React from 'react';
 
-import { footerLinks } from '@/constants';
 import Link from 'next/link';
+import { footerLinks } from '@/constants';
 
 export const Footer = () => {
   return (
