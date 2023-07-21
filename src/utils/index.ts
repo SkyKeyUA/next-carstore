@@ -30,7 +30,13 @@ export const calculateCarRent = (city_mpg: number, year: number) => {
 };
 
 export const generateCarImageUrl = (car: CarProps, angle?: string) => {
-  const url = new URL(`${process.env.DBCAR_URL}`);
+  const dbCarUrl = process.env.DBCAR_URL;
+
+  if (!dbCarUrl) {
+    throw new Error('DBCAR_URL is not defined');
+  }
+
+  const url = new URL(dbCarUrl);
 
   const { make, year, model } = car;
 
