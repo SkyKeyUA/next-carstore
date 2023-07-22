@@ -1,16 +1,19 @@
 /** @format */
 
-import { CarProps } from '@/types';
+import { CarProps, FilterProps } from '@/types';
 
-export async function fetchCars() {
+export async function fetchCars(filters: FilterProps) {
+  const { manufacturer, year, model, limit, fuel } = filters;
   const headers = {
     'X-RapidAPI-Key': `${process.env.DB_KEY}`,
     'X-RapidAPI-Host': `${process.env.DB_HOST}`,
   };
-  const response = await fetch(`${process.env.DB_URL}`, { headers: headers });
+  const response = await fetch(
+    `${process.env.DB_URL}?make=${manufacturer}&year=${year}&model=${model}&limit=${limit}&fuel_type=${fuel}`,
+    { headers: headers },
+  );
 
   const result = await response.json();
-
   return result;
 }
 
@@ -48,4 +51,14 @@ export const generateCarImageUrl = (car: CarProps, angle?: string) => {
   url.searchParams.append('angle', `${angle}`);
 
   return `${url}`;
+};
+
+export const updateSearchParams = (type: string, value: string) => {
+  const searchParams = new URLSearchParams(window.location.search);
+
+  searchParams.set(type, value);
+
+  const newPathname = `${window.location.pathname}?${searchParams.toString()}`;
+
+  return newPathname;
 };
