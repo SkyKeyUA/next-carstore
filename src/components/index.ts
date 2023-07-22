@@ -10,3 +10,4 @@ export { CustomFilter } from './CustomFilter';
 export { CarCard } from './CarCard';
 export { CarDetails } from './CarDetails';
 export { SearchButton } from './SearchButton';
+export { ShowMore } from './ShowMore';
