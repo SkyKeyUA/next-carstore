@@ -30,7 +30,7 @@ export const SearchManufacturer = ({ selected, setSelected }: SearchManufacturer
             <Image src="/car-logo.svg" alt="Car logo" width={20} height={20} className="ml-4" />
           </Combobox.Button>
           <Combobox.Input
-            className="search-manufacturer__input"
+            className="search-manufacturer__input relative"
             placeholder="Volkswagen"
             displayValue={(manufacturer: string) => manufacturer}
             onChange={(e) => setQuery(e.target.value)}
@@ -41,7 +41,7 @@ export const SearchManufacturer = ({ selected, setSelected }: SearchManufacturer
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
             afterLeave={() => setQuery('')}>
-            <Combobox.Options>
+            <Combobox.Options className="absolute w-full bg-white shadow-xl overflow-y-auto w-fit z-10 max-h-60">
               {filteredManufacturers.map((item) => (
                 <Combobox.Option
                   key={item}

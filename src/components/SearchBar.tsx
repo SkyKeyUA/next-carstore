@@ -5,12 +5,10 @@ import React from 'react';
 import { SearchManufacturer } from './SearchManufacturer';
 import { SearchButton } from './SearchButton';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 
 export const SearchBar = ({ setManufacturer, setModel }) => {
   const [searchManufacturer, setSearchManufacturer] = React.useState('');
   const [searchModel, setSearchModel] = React.useState('');
-  const router = useRouter();
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
