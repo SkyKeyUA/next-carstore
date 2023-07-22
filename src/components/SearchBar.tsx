@@ -6,14 +6,24 @@ import { SearchManufacturer } from './SearchManufacturer';
 import { SearchButton } from './SearchButton';
 import Image from 'next/image';
 
-export const SearchBar = () => {
-  const [manufacturer, setManufacturer] = React.useState('');
-  const [model, setModel] = React.useState('');
-  const handleSearch = () => {};
+export const SearchBar = ({ setManufacturer, setModel }) => {
+  const [searchManufacturer, setSearchManufacturer] = React.useState('');
+  const [searchModel, setSearchModel] = React.useState('');
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (searchManufacturer === '' && searchModel === '') {
+      return alert('Please fill in the search bar');
+    }
+
+    setModel(searchModel);
+    setManufacturer(searchManufacturer);
+  };
+
   return (
     <form className="searchbar" onSubmit={handleSearch}>
       <div className="searchbar__item">
-        <SearchManufacturer manufacturer={manufacturer} setManufacturer={setManufacturer} />
+        <SearchManufacturer selected={searchManufacturer} setSelected={setSearchManufacturer} />
         <SearchButton otherClasses="sm:hidden" />
       </div>
       <div className="searchbar__item">
@@ -27,8 +37,8 @@ export const SearchBar = () => {
         <input
           type="text"
           name="model"
-          value={model}
-          onChange={(e) => setModel(e.target.value)}
+          value={searchModel}
+          onChange={(e) => setSearchModel(e.target.value)}
           placeholder="Tiguan"
           className="searchbar__input"
         />

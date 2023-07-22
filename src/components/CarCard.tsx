@@ -40,19 +40,19 @@ export const CarCard = ({ car }: CarCardProps) => {
       </div>
 
       <div className="relative flex w-full mt-2">
-        <div className="flex group-hover:invisible w-full justify-between text-gray">
+        <div className="flex group-hover:invisible w-full justify-center text-gray">
           <div className="flex flex-col justify-center items-center gap-2">
             <Image src="/steering-wheel.svg" width={20} height={20} alt="steering wheel" />
             <p className="text-[14px]">{transmission === 'a' ? 'Automatic' : 'Manual'}</p>
           </div>
         </div>
-        <div className="flex group-hover:invisible w-full justify-between text-gray">
+        <div className="flex group-hover:invisible w-full justify-center text-gray">
           <div className="flex flex-col justify-center items-center gap-2">
             <Image src="/tire.svg" width={20} height={20} alt="tire" />
             <p className="text-[14px]">{drive.toUpperCase()}</p>
           </div>
         </div>
-        <div className="flex group-hover:invisible w-full justify-between text-gray">
+        <div className="flex group-hover:invisible w-full justify-center text-gray">
           <div className="flex flex-col justify-center items-center gap-2">
             <Image src="/gas.svg" width={20} height={20} alt="gas" />
             <p className="text-[14px]">{city_mpg} MPG</p>
