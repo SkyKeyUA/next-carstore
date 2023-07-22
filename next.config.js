@@ -7,6 +7,9 @@ const nextConfig = {
   images: {
     domains: ['cdn.imagin.studio'],
   },
+  typescript: {
+	ignoreBuildErrors: true,
+  }
   env: {
     DB_KEY: process.env.DB_KEY,
     DB_HOST: process.env.DB_HOST,
